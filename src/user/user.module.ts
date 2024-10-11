@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { MailerModule } from 'src/nodemailer/nodemailer.module';
-import { User, UserSchema } from 'src/user/user.schema';
-import { UploadModule } from 'src/upload/upload.module';
-import { ApiModule } from 'src/common/Api/api.module';
+import { MailerModule } from '../nodemailer/nodemailer.module';
+import { User, UserSchema } from '../user/user.schema';
+import { UploadModule } from '../upload/upload.module';
+import { ApiModule } from '../common/Api/api.module';
 import { Query } from 'mongoose';
 import { UserController } from './user.controller';
 import { UserLoggedController } from './logged.controller';
 import { UserService } from './user.service';
-import { FirebaseModule } from 'src/firebase/firebase.module';
+import { FirebaseModule } from '../firebase/firebase.module';
 
 @Module({
   controllers: [UserController, UserLoggedController],

@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import { Gender, User_Role } from 'src/common/enum';
+import { Gender, User_Role } from '../common/enum';
 
 @Schema({
   timestamps: true,

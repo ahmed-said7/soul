@@ -1,3 +1,3 @@
-import { FindQuery } from 'src/common/types';
+import { FindQuery } from '../../common/types';
 
 export class QueryUserDto extends FindQuery {}

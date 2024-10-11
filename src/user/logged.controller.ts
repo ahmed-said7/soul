@@ -8,16 +8,16 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { Roles } from 'src/common/decorator/roles';
-import { All_Role } from 'src/common/enum';
-import { IAuthUser } from 'src/common/types';
+import { Roles } from '../common/decorator/roles';
+import { All_Role } from '../common/enum';
+import { IAuthUser } from '../common/types';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update.user.dto';
 // import { ChangePasswordDto } from './dto/change-password.user.dto';
-import { AuthUser } from 'src/common/decorator/user.decorator';
-import { AuthenticationGuard } from 'src/common/guards/authentication.guard';
-import { AuthorizationGuard } from 'src/common/guards/authorization.guard';
+import { AuthUser } from '../common/decorator/user.decorator';
+import { AuthenticationGuard } from '../common/guards/authentication.guard';
+import { AuthorizationGuard } from '../common/guards/authorization.guard';
 
 @Controller('user/profile')
 export class UserLoggedController {

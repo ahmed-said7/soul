@@ -9,7 +9,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { ConfigService } from '@nestjs/config';
 import { Payload } from '../types';
-import { User, UserDocument } from 'src/user/user.schema';
+import { User, UserDocument } from '../../user/user.schema';
 import { Request } from 'express';
 
 @Injectable()

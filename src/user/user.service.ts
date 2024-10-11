@@ -18,10 +18,10 @@ import { User, UserDocument } from './user.schema';
 // import { QueryUserDto } from './dto/query.user.dto';
 import { CreateUserDto } from './dto/create.user.dto';
 import { UpdateUserDto } from './dto/update.user.dto';
-import { MailerService } from 'src/nodemailer/nodemailer.service';
-import { UploadService } from 'src/upload/upload.service';
+import { MailerService } from '../nodemailer/nodemailer.service';
+import { UploadService } from '../upload/upload.service';
 import { ConfigService } from '@nestjs/config';
-import { FirebaseService } from 'src/firebase/firebase.service';
+import { FirebaseService } from '../firebase/firebase.service';
 
 @Injectable()
 export class UserService {
