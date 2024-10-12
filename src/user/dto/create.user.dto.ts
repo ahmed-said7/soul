@@ -10,7 +10,8 @@ import {
 import { Gender } from '../../common/enum';
 
 export class CreateUserDto {
-  @ApiProperty()
+  @ApiPropertyOptional()
+  @IsOptional()
   @IsString()
   name: string;
   @ApiProperty()

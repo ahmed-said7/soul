@@ -3,13 +3,12 @@ import {
   Controller,
   Post,
   Req,
-  Res,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { ValidateOtpCode } from './dto/otp-code.dto';
 import { ForgetPasswordDto } from './dto/forget-password.dto';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 import { UserService } from './user.service';
 import { LoginDto } from './dto/login.user.dto';
 import { CreateUserDto } from './dto/create.user.dto';
@@ -19,8 +18,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 export class UserController {
   constructor(private userService: UserService) {}
   @Post('login')
-  login(@Body() body: LoginDto, @Res() res: Response) {
-    return this.userService.login(body, res);
+  login(@Body() body: LoginDto) {
+    return this.userService.login(body);
   }
   @Post('signup')
   @UseInterceptors(FileInterceptor('icon'))

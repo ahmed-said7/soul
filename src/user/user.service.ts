@@ -12,7 +12,7 @@ import * as crypto from 'crypto';
 import * as jwt from 'jsonwebtoken';
 // import { ChangePasswordDto } from './dto/change-password.user.dto';
 // import { IAuthUser } from 'src/common/types';
-import { Request, Response } from 'express';
+import { Request } from 'express';
 // import { ApiService } from 'src/common/Api/api.service';
 import { User, UserDocument } from './user.schema';
 // import { QueryUserDto } from './dto/query.user.dto';
@@ -50,7 +50,8 @@ export class UserService {
       this.configService.get('refresh_secret'),
       { expiresIn: '7d' },
     );
-    user.password = undefined;
+    // consol
+    // user.password = undefined;
     return { accessToken, user, refreshToken };
   }
   async getFcmToken(userId: string) {
@@ -77,7 +78,7 @@ export class UserService {
   //   await user.save();
   //   return { user };
   // }
-  async login(body: LoginDto, res: Response) {
+  async login(body: LoginDto) {
     const user = await this.userModel.findOne({ email: body.email });
     if (!user) {
       throw new NotFoundException('user not found');
@@ -97,7 +98,7 @@ export class UserService {
       { expiresIn: '7d' },
     );
     user.password = undefined;
-    res.status(200).json({ accessToken, user, refreshToken });
+    return { accessToken, user, refreshToken };
   }
   createHash(code: string) {
     return crypto.createHash('sha256').update(code).digest('hex');
@@ -110,7 +111,7 @@ export class UserService {
     const code = this.mailerService.resetCode();
     const hash = this.createHash(code);
     user.passwordResetCode = hash;
-    user.passwordResetCodeExpiresIn = new Date(Date.now() + 5 * 60 * 100);
+    user.passwordResetCodeExpiresIn = new Date(Date.now() + 5 * 60 * 1000);
     try {
       await this.mailerService.sendChangingPasswordCode({
         code,

@@ -11,11 +11,15 @@ export class User {
     trim: true,
   })
   name: string;
+  @Prop({
+    default: false,
+  })
+  isDeleted: boolean;
 
   @Prop({ type: String })
   passwordResetCode: string;
 
-  @Prop({ type: String, trim: true })
+  @Prop({ type: String, trim: true, default: 'System' })
   provider: string;
 
   @Prop({ type: String, trim: true })
