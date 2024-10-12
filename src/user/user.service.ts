@@ -169,7 +169,7 @@ export class UserService {
       { expiresIn: '7d' },
     );
     user.password = undefined;
-    return { accessToken, refreshToken };
+    return { accessToken, refreshToken, user };
   }
   // async getOneUser(userId: string) {
   //   const user = await this.userModel.findById(userId);
